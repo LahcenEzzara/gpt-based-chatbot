@@ -3,10 +3,13 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 st.set_page_config(page_title="GPT based ChatBot")
 st.title("GPT based ChatBot")
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
